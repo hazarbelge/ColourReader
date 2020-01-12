@@ -66,7 +66,9 @@ void loop() {
   lcd.print("Algilanan Renk");
   
   lcd.setCursor(2,1); 
-
+  
+  
+  // Aşağıdaki bütün sayılar ortama uygun olarak değiştirilmelidir.
   if(Kirmizi<530 && Mavi<530 && Yesil<530){
   Serial.print("Renk = Beyaz   ");
   lcd.print("Beyaz");  
@@ -109,7 +111,7 @@ void loop() {
   
   else{
   Serial.print("Renk algılanamadı   ");
-  lcd.print("---");
+  lcd.print("Yok");
   }
   
   Serial.println();

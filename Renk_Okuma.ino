@@ -23,18 +23,6 @@ void setup() {
 }
 
 void loop() {
-  
-  lcd.print("K=");
-  digitalWrite(10, HIGH);
-  digitalWrite(11, LOW);
-  Kirmizi = pulseIn(sensorcikis, LOW); 
-  lcd.print(Kirmizi); 
-  lcd.print("  ");
-  lcd.setCursor(7, 0); 
-  Serial.print("Kırmızı= ");
-  Serial.print(Kirmizi); 
-  Serial.print("  ");
-  delay(65);
  
   lcd.print("Y=");
   digitalWrite(10, HIGH); 
@@ -58,6 +46,19 @@ void loop() {
   lcd.setCursor(0, 0);
   delay(1111);
   
+    
+  lcd.print("K=");
+  digitalWrite(10, HIGH);
+  digitalWrite(11, LOW);
+  Kirmizi = pulseIn(sensorcikis, LOW); 
+  lcd.print(Kirmizi); 
+  lcd.print("  ");
+  lcd.setCursor(7, 0); 
+  Serial.print("Kırmızı= ");
+  Serial.print(Kirmizi); 
+  Serial.print("  ");
+  delay(65);
+  
   lcd.clear(); 
   delay(162);
 
@@ -70,43 +71,51 @@ void loop() {
   
   // Aşağıdaki bütün sayılar ortama uygun olarak değiştirilmelidir.
   if(Kirmizi<530 && Mavi<530 && Yesil<530){
-  Serial.print("Renk = Beyaz   ");
   lcd.print("Beyaz");  
+  Serial.print("Renk = Beyaz   ");
+  delay(10);
   }
 
   else if(Kirmizi>1400 && Mavi>1400 && Yesil>1400) {
-  Serial.print("Renk = Siyah   ");
-  lcd.print("Siyah");  
+  lcd.print("Siyah"); 
+  Serial.print("Renk = Siyah   "); 
+  delay(10);
   }
   
   else if(Kirmizi < 1100 && Kirmizi<Yesil-10 && Kirmizi<Mavi-10){
   Serial.print("Renk = Kırmızı   ");
   lcd.print("Kirmizi");
+  delay(10);
   }
   
   else if(Mavi < 1100 && Mavi<Yesil-10 && Mavi<Kirmizi-10){
   Serial.print("Renk = Mavi   ");
   lcd.print("Mavi");
+  delay(10);
   }
 
   else if(Yesil < 1100 && Yesil<Mavi-10 && Yesil<Kirmizi-10){
   lcd.print("Yesil");
   Serial.print("Renk = Yeşil   ");
+  delay(10);
   }
   
   else if(Mavi<Yesil && Yesil<Kirmizi && abs(Mavi-Yesil)<20){
   lcd.print("Cyan");
   Serial.print("Renk = Cyan   ");
+  delay(10);
   }
     
   else if(Mavi<Yesil && Kirmizi<Yesil && abs(Mavi-Kirmizi)<20){
   lcd.print("Magenta");
   Serial.print("Renk = Magenta   ");
+  delay(10);
   }
 
   else if(Yesil<Mavi && Kirmizi<Mavi && abs(Kirmizi-Yesil)<20){
   Serial.print("Renk = Sarı   ");
   lcd.print("Sari");
+  delay(10);
   }
   
   else{
